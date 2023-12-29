@@ -1,95 +1,61 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import * as React from 'react'
+import {
+    Aside,
+    MyTable,
+    Profile,
+    Contact,
+    AboutMe,
+    Logo,
+    ThemeSwitcher,
+    Skills,
+} from 'components'
+import { Divider } from '@nextui-org/react'
+export default function HomePage() {
+    return (
+        <div
+            className={
+                'mb-12 md:mb-0 h-screen w-screen overflow-y-auto flex flex-col md:flex-row'
+            }
+        >
+            <div className={'w-full items-center flex flex-col md:w-1/3'}>
+                <div className={'w-full flex justify-between items-center'}>
+                    <Logo className={'m-5'} />
+                    <ThemeSwitcher className={'block md:hidden'} />
+                </div>
+                <Profile />
+                <div className={'hidden md:block'}>
+                    <Contact />
+                </div>
+                <div className={'w-11/12 md:hidden'}>
+                    <Divider className={'mt-6'} />
+                </div>
+            </div>
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            <div
+                className={
+                    'flex flex-col w-full h-full pl-5 pt-7 pr-2.5 md:pl-20  md:pt-28 md:pr-10'
+                }
+            >
+                <AboutMe className={'mb-5 md:mb-0'} />
+                {/*<div className={'flex flex-col mt-16 hidden md:block'}>
+                    <p className="text-default-1000 text-5xl font-semibold">
+                        Project
+                    </p>
+                    <MyTable className={'mt-8 mb-16'} />
+                </div>*/}
+                <div className={'md:hidden'}>
+                    <Skills />
+                </div>
+                <div className={'w-11/12 mt-4 mb-8 md:hidden'}>
+                    <Divider />
+                </div>
+                <div className={'block md:hidden '}>
+                    <div className={'w-full items-center flex flex-col'}>
+                        <Contact />
+                    </div>
+                </div>
+            </div>
+            <Aside className={'hidden md:block'} />
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    )
 }
